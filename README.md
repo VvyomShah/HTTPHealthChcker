@@ -1,3 +1,6 @@
+# HTTP Health Checker
+
+
 This script provides a simple and configurable health-checking mechanism for HTTP/HTTPS endpoints. It reads configuration details from a YAML file, sends requests to specified URLs, captures responses, calculates statistics, and prints health statistics.
 Prerequisites
 

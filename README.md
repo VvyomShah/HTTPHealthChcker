@@ -1,20 +1,14 @@
 This script provides a simple and configurable health-checking mechanism for HTTP/HTTPS endpoints. It reads configuration details from a YAML file, sends requests to specified URLs, captures responses, calculates statistics, and prints health statistics.
 Prerequisites
 
-    Python 3.x
+    Python 3.7x
 
-Installation
+Clone the repository or download the script:
 
-    Clone the repository or download the script:
-
-    bash
-
-git clone https://github.com/VvyomShah/HTTPHealthChcker/
-cd health-checker
+    git clone https://github.com/VvyomShah/HTTPHealthChcker/
+    cd HTTPHealthChcker
 
 Install the required Python packages:
-
-bash
 
     pip install -r requirements.txt
 
@@ -27,15 +21,14 @@ Command Line Arguments
 
 Example
 
-python health_checker.py -p path/to/config.yaml -d 15 -l 500
+    python health_checker.py -p path/to/config.yaml -d 15 -l 500
 
-This command runs the health checker with a custom delay of 30 seconds and a latency threshold of 1000 milliseconds using the specified config file.
+This command runs the health checker with a custom delay of 15 seconds and a latency threshold of 500 milliseconds using the specified config file.
 Configuration File (YAML)
 
 The YAML config file should have the following structure:
 
-yaml
-
+```
 - name: example_request
   method: GET
   url: https://example.com/api
@@ -53,17 +46,18 @@ yaml
   body:
     data: "example data"
 
-    name: A unique identifier for the request.
-    method: HTTP method (GET, POST, PUT, DELETE, etc.).
-    url: The URL to send the request to.
-    headers: Optional headers for the request.
-    body: Optional request payload.
+- name: A unique identifier for the request.
+  method: HTTP method (GET, POST, PUT, DELETE, etc.).
+  url: The URL to send the request to.
+  headers: Optional headers for the request.
+  body: Optional request payload.
+```
 
 Running the Health Checker
 
 After configuring the YAML file, run the health checker with the following command:
 
-python health_checker.py -p path/to/config.yaml
+    python health_checker.py -p path/to/config.yaml
 
 The script will continuously send requests to the specified endpoints, calculate availability percentages, and print the results at the specified interval. Press Ctrl + C to stop the health checker.
 
